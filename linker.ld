@@ -1,3 +1,16 @@
+/* Entry Point */
+ENTRY(Reset_Handler) /* The function named 'Reset_Handler' is defined */
+                     /* in the 'startup.c' file.             */
+
+/* Highest address of the user mode stack */
+/* Remember: the stack points downwards */
+/* The linker takes this exact variable and secretly inserts it into the very */
+/* first slot (Position 0) of the .isr_vector table. When the CPU wakes up, it reads */ 
+/* 0x20018000, loads it into its internal hardware Stack Pointer register, and then */
+/* boots the Reset_Handler */
+
+_estack = 0x20018000;    /* End of RAM */
+
 /* Define the minimum sizes for Heap and Stack */
 _Min_Heap_Size = 0x200;  /* 512 Bytes */
 _Min_Stack_Size = 0x400; /* 1024 Bytes */
